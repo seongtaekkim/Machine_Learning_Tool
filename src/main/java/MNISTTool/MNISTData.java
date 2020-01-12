@@ -1,8 +1,11 @@
 package MNISTTool;
 
+import java.util.List;
+
 public class MNISTData {
 	private String x1;
 	private String x2;
+	private List<Long> Y;
 	public String getX1() {
 		return x1;
 	}

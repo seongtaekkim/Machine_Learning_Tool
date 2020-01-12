@@ -8,6 +8,7 @@ public class LinearRegressionMNIST implements LinearRegression {
 	
 	private List<MNISTData> X;
 	private MNISTTheta theta;
+	
 	public LinearRegressionMNIST(List<MNISTData> X , MNISTTheta theta) {
 		this.X = X;
 		this.theta = theta;
@@ -15,7 +16,9 @@ public class LinearRegressionMNIST implements LinearRegression {
 	@Override
 	public void hypothesis() {
 		//h = X * theta  -> m * 1
-		
+		for (MNISTData mnistData : X) {
+			
+		}
 	}
 	@Override
 	public Long costFuntion() {
