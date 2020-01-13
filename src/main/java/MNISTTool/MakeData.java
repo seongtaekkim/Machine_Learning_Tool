@@ -4,13 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import org.springframework.core.io.ClassPathResource;
 
 public class MakeData {
 
@@ -19,47 +19,17 @@ public class MakeData {
 
 	public MakeData() {
 		
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		
+		ClassPathResource resource = new ClassPathResource("\\data\\ex1data1.txt");
+
 
 		try {
-			DocumentBuilder documentBuilder  = factory.newDocumentBuilder();
-			InputStream is = this.getClass().getClassLoader().getResourceAsStream("ex1data1.txt");
-			int singleCh = 0;
-			try {
-				while((singleCh = is.read()) != -1){
-					System.out.print((char)singleCh);
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println("is");
-		} catch (ParserConfigurationException e) {
-			e.printStackTrace();
-
+		    Path path = Paths.get(resource.getURI());
+		    List<String> content = Files.readAllLines(path);
+		    content.forEach(System.out::println);
+		} catch (IOException e) {
+		    System.out.println(e);
 		}
-			
-		try{
-			//파일 객체 생성
-
-			File file = new File("\\data\\ex1data1.txt");
-
-
-			
-				//입력 스트림 생성
-				FileReader filereader = new FileReader(file);
-				int singleCh = 0;
-				System.out.println("file : " + file.getName());
-				while((singleCh = filereader.read()) != -1){
-					System.out.print((char)singleCh);
-				}
-				filereader.close();
-			}catch (FileNotFoundException e) {
-				// TODO: handle exception
-				System.out.println(e);
-			}catch(IOException e){
-				System.out.println(e);
-			}
 		}
 		public List<Long[]> getX() {
 			return X;
