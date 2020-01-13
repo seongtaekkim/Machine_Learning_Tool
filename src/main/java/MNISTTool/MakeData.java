@@ -18,33 +18,30 @@ public class MakeData {
 	private List<Long> Y = new ArrayList<Long>();
 
 	public MakeData() {
-		
-		
 		ClassPathResource resource = new ClassPathResource("\\data\\ex1data1.txt");
 
-
 		try {
-		    Path path = Paths.get(resource.getURI());
-		    List<String> content = Files.readAllLines(path);
-		    content.forEach(System.out::println);
+			Path path = Paths.get(resource.getURI());
+			List<String> content = Files.readAllLines(path);
+			content.forEach(System.out::println);
 		} catch (IOException e) {
-		    System.out.println(e);
+			System.out.println(e);
 		}
-		}
-		public List<Long[]> getX() {
-			return X;
-		}
-
-		public void setX(List<Long[]> x) {
-			X = x;
-		}
-
-		public List<Long> getY() {
-			return Y;
-		}
-
-		public void setY(List<Long> y) {
-			Y = y;
-		}
-
+	}	
+	public List<Long[]> getX() {
+		return X;
 	}
+
+	public void setX(List<Long[]> x) {
+		X = x;
+	}
+
+	public List<Long> getY() {
+		return Y;
+	}
+
+	public void setY(List<Long> y) {
+		Y = y;
+	}
+
+}
