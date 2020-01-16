@@ -6,19 +6,16 @@ import machinelearning.regression.LinearRegression;
 
 public class LinearRegressionMNIST implements LinearRegression {
 	
-	private List<MNISTData> X;
-	private MNISTTheta theta;
+	private List<Double> X;
+	private Double[] theta;
 	
-	public LinearRegressionMNIST(List<MNISTData> X , MNISTTheta theta) {
+	public LinearRegressionMNIST(List<Double> X , Double[] theta) {
 		this.X = X;
 		this.theta = theta;
 	}
 	@Override
 	public void hypothesis() {
 		//h = X * theta  -> m * 1
-		for (MNISTData mnistData : X) {
-			
-		}
 	}
 	@Override
 	public Long costFuntion() {

@@ -2,9 +2,9 @@ package MNISTTool;
 
 
 public class MakeTheta {
-	private long[] theta = new long[2];
+	private Double[] theta = new Double[2];
 	public MakeTheta() {
-		theta[0] = 0L;
-		theta[1] = 0L;
+		theta[0] = 0.0;
+		theta[1] = 0.0;
 	}
 }
