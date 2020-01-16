@@ -19,10 +19,14 @@ public class MakeData {
 
 	public MakeData() {
 		ClassPathResource resource = new ClassPathResource("\\data\\ex1data1.txt");
-
 		try {
 			Path path = Paths.get(resource.getURI());
 			List<String> content = Files.readAllLines(path);
+			String[] tmpStr = new String[2];
+			for(int i=0 ; i<content.size() ; i++) {
+				tmpStr = content.get(i).split(",");
+				
+			}
 			content.forEach(System.out::println);
 		} catch (IOException e) {
 			System.out.println(e);
