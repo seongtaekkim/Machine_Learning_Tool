@@ -16,6 +16,11 @@ public class LinearRegressionMNIST implements LinearRegression {
 	@Override
 	public void hypothesis() {
 		//h = X * theta  -> m * 1
+		double h = 0.0;
+		for(int i=0 ; i<X.size() ; i++) {
+			h += theta[0] * 1 + theta[1] * X.get(i);
+		}
+		System.out.println("h : " + h);
 	}
 	@Override
 	public Long costFuntion() {
