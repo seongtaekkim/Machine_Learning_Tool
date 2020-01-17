@@ -2,9 +2,16 @@ package machinelearning.regressionEx;
 
 
 public class MakeTheta {
-	private long[] theta = new long[2];
+	private Double[] theta = new Double[2];
 	public MakeTheta() {
-		theta[0] = 0L;
-		theta[1] = 0L;
+		theta[0] = 1.0;
+		theta[1] = 1.0;
 	}
+	public Double[] getTheta() {
+		return theta;
+	}
+	public void setTheta(Double[] theta) {
+		this.theta = theta;
+	}
+	
 }
