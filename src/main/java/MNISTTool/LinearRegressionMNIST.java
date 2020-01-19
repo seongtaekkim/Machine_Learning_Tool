@@ -23,7 +23,7 @@ public class LinearRegressionMNIST implements LinearRegression {
 		System.out.println("h : " + h);
 	}
 	@Override
-	public Long costFuntion() {
+	public Double costFuntion() {
 		return null;
 	}
 	@Override
