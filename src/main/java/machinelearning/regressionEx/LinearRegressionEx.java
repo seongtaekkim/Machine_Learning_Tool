@@ -14,31 +14,27 @@ public class LinearRegressionEx implements LinearRegression {
 		this.theta = theta;
 	}
 	@Override
-	public void hypothesis() {
+	public Double[] hypothesis() {
 		//h = X * theta  -> m * 1
-		double h = 0.0;
+		Double[] h = new Double[X.size()];
 		for(int i=0 ; i<X.size() ; i++) {
-			System.out.println(X.get(i));
-			h += theta[0] * 1.0 + theta[1] * X.get(i);
+			h[i] = theta[0] * 1.0 + theta[1] * X.get(i);
 		}
-		System.out.println("h : " + h);
+		return h;
 	}
 	@Override
 	public Double costFuntion() {
 		Double h = 0.0;
 		for(int i=0 ; i<X.size() ; i++) {
-			System.out.println(X.get(i));
 			h += theta[0] * 1.0 + theta[1] * X.get(i);
 		}
 		h = h/X.size();
 		h = h/2;
-		System.out.println("h : " + h);
 		
 		return h;
 	}
 	@Override
 	public void gradientDecent() {
-		
 	}
 	
 }

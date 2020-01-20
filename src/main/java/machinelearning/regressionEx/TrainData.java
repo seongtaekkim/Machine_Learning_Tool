@@ -8,7 +8,7 @@ public class TrainData {
 		MakeTheta theta = new MakeTheta();
 		
 		LinearRegressionEx lr = new LinearRegressionEx(data.getX(), theta.getTheta());
-		
+		System.out.println("cost : " + lr.costFuntion());
 		lr.hypothesis();
 	}
 	
