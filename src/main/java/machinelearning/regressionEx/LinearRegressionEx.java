@@ -43,17 +43,18 @@ public class LinearRegressionEx implements LinearRegression {
 		Double[] error = {0.0, 0.0};
 		Double[] h = null;
 		
-		for(int i=0 ; i<100 ; i++) {
+		for(int i=0 ; i<1000 ; i++) {
 			h = hypothesis();
 			for(int j=0; j<X.size() ; j++) {
 				error[0] += (h[j] - Y.get(j));
 				error[1] += (h[j] - Y.get(j))* X.get(j);
 			}
 			
-			theta[0] = theta[0] - 0.00003/X.size() * error[0];
-			theta[1] = theta[1] - 0.00003/X.size() * error[1];
+			theta[0] = theta[0] - 0.01/X.size() * error[0];
+			theta[1] = theta[1] - 0.01/X.size() * error[1];
 			System.out.println("cost : " + costFuntion());
 		}
+		System.out.println(theta[0]*1  + theta[1]*3.5);
 	}
 	
 }
