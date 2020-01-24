@@ -2,12 +2,20 @@ package machinelearning.regressionEx;
 
 import java.util.List;
 
-import javafx.geometry.Side;
 import machinelearning.regression.LinearRegression;
 
+/**
+ * 
+ * @author kim
+ * input : [m * 1]
+ * theta : [1 * 1]
+ * output : [m * 1]
+ * 단변량 Linear Regression 학습구현.
+ *
+ */
 public class LinearRegressionEx implements LinearRegression {
 
-	private List<Double> X;
+	private List<Double> X; 
 	private List<Double> Y;
 	private Double[] theta;
 	
@@ -39,12 +47,15 @@ public class LinearRegressionEx implements LinearRegression {
 		return cost;
 	}
 	@Override
-	public void gradientDecent() {
+	public void gradientDecent() { 
 		Double[] error = {0.0, 0.0};
-		Double[] h = null;
+		Double[] h = null;	
 		
-		for(int i=0 ; i<1000 ; i++) {
+		for(int i=0 ; i<50 ; i++) {
 			h = hypothesis();
+			error[0] = 0.0;
+			error[1] = 0.0;
+			
 			for(int j=0; j<X.size() ; j++) {
 				error[0] += (h[j] - Y.get(j));
 				error[1] += (h[j] - Y.get(j))* X.get(j);
