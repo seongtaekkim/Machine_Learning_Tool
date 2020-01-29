@@ -11,7 +11,7 @@ public class HyperParameter {
 
 	public static final int INPUT_NUM = 157;
 	public static final int OUTPUT_NUM = 64; // 1~클래스 갯수
-	
+	 
 	public static final double INIT_VALUE_0 = 0.0;
 	public static final double INIT_VALUE_1 = 1.0;
 	public static final double INIT_VALUE_08 = 0.8;
