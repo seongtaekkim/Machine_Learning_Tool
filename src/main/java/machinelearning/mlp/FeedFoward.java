@@ -7,7 +7,7 @@ public class FeedFoward extends Init {
 
 	MLPFunction mlpFunc = new MLPFunction();
 	public FeedFoward() {}
-	
+	 
 	/*
 	 *  2~output layer 까지의 activation List 를 구한다.
 	 */
