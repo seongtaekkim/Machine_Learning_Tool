@@ -15,11 +15,11 @@ import machinelearning.regression.LinearRegression;
  */
 public class LinearRegressionMulti implements LinearRegression {
 
-	private List<Double> X; 
+	private List<Double[]> X; 
 	private List<Double> Y;
 	private Double[] theta;
 	
-	public LinearRegressionMulti(List<Double> X ,List<Double> Y, Double[] theta) {
+	public LinearRegressionMulti(List<Double[]> X ,List<Double> Y, Double[] theta) {
 		this.X = X;
 		this.Y = Y;
 		this.theta = theta;
@@ -28,8 +28,15 @@ public class LinearRegressionMulti implements LinearRegression {
 	public Double[] hypothesis() {
 		//h = X * theta  -> m * 1
 		Double[] h = new Double[X.size()];
+		Double tmp = 0.0;
+		h[0] = theta[0] * 1.0;
 		for(int i=0 ; i<X.size() ; i++) {
-			h[i] = theta[0] * 1.0 + theta[1] * X.get(i);
+			for(int j=1 ; j<theta.length ; j++) {
+				System.out.println("j :" + j);
+				tmp += theta[j] * X.get(i)[j-1];
+			}
+			h[i] = tmp;
+			tmp = 0.0;
 		}
 		return h;
 	}
@@ -48,24 +55,24 @@ public class LinearRegressionMulti implements LinearRegression {
 	}
 	@Override
 	public void gradientDecent() { 
-		Double[] error = {0.0, 0.0};
-		Double[] h = null;	
-		
-		for(int i=0 ; i<50 ; i++) {
-			h = hypothesis();
-			error[0] = 0.0;
-			error[1] = 0.0;
-			
-			for(int j=0; j<X.size() ; j++) {
-				error[0] += (h[j] - Y.get(j));
-				error[1] += (h[j] - Y.get(j))* X.get(j);
-			}
-			
-			theta[0] = theta[0] - 0.01/X.size() * error[0];
-			theta[1] = theta[1] - 0.01/X.size() * error[1];
-			System.out.println("cost : " + costFuntion());
-		}
-		System.out.println(theta[0]*1  + theta[1]*3.5);
+//		Double[] error = {0.0, 0.0};
+//		Double[] h = null;	
+//		
+//		for(int i=0 ; i<50 ; i++) {
+//			h = hypothesis();
+//			error[0] = 0.0;
+//			error[1] = 0.0;
+//			
+//			for(int j=0; j<X.size() ; j++) {
+//				error[0] += (h[j] - Y.get(j));
+//				error[1] += (h[j] - Y.get(j))* X.get(j);
+//			}
+//			
+//			theta[0] = theta[0] - 0.01/X.size() * error[0];
+//			theta[1] = theta[1] - 0.01/X.size() * error[1];
+//			System.out.println("cost : " + costFuntion());
+//		}
+//		System.out.println(theta[0]*1  + theta[1]*3.5);
 	}
 	
 }

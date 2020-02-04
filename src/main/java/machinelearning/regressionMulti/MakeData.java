@@ -40,7 +40,7 @@ public class MakeData {
 	}
 
 	public void setX(List<Double[]> x) {
-		X = x;
+		this.X = x;
 	}
 
 	public List<Double> getY() {
@@ -48,6 +48,6 @@ public class MakeData {
 	}
 
 	public void setY(List<Double> y) {
-		Y = y;
+		this.Y = y;
 	}
 }
